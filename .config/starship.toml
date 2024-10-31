@@ -1,0 +1,129 @@
+format = """
+[░▒▓](fg:blue)\
+[⟑ ](bold bg:blue fg:black)\
+[](bg:bright-blue fg:blue)\
+$directory\
+[](fg:bright-blue bg:cyan)\
+$git_branch\
+$git_status\
+[](fg:bright-cyan bg:purple)\
+$cmd_duration\
+[](fg:purple)\
+\n[░▒▓](fg:blue)\
+$battery(bg:blue fg:bright-blue)\
+$username\
+$hostname\
+$character"""
+
+# After git status
+#[](fg:cyan bg:bright-cyan)\
+#$nodejs\
+#$rust\
+#$golang\
+#$php\
+
+# Imported from grey_arrows
+# Timeout for starship to scan files (in milliseconds)
+scan_timeout = 1000
+# Add a new line before the start of the prompt
+add_newline = true
+
+[directory]
+style = "fg:black bg:bright-blue"
+format = "[$path]($style)"
+truncation_length = 3
+truncation_symbol = "/…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "🎝 "
+"Pictures" = " "
+"~" = "🏠"
+"NAS" = "🖧 "
+
+[git_branch]
+symbol = ""
+style = "bg:cyan"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:cyan)]($style)'
+
+[git_status]
+style = "bg:cyan"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:cyan)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:bright-cyan"
+format = '[[ $symbol ](fg:#769ff0 bg:#212736)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:bright-cyan"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:bright-cyan"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[php]
+symbol = ""
+style = "bg:bright-cyan"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[time]
+disabled = true
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ ⏲ $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+# Imported from grey_arrows
+
+[battery]
+disabled = false
+full_symbol = "🔋"
+charging_symbol = "🗲 "
+discharging_symbol = "🪫"
+format = "[(fg:#a3aed2 bg:#a3aed2)$symbol[](fg:#a3aed2 bg:#769ff0)]($style)"
+[[battery.display]]
+threshold = 20
+style = "bg:#a3aed2 fg:red"
+
+[cmd_duration]
+disabled = false
+min_time = 1000
+format = "[took $duration]($style)"
+show_milliseconds = false
+style = "bold bg:purple fg:black"
+show_notifications = false
+min_time_to_notify = 10_000
+
+[username]
+disabled = false
+format = "[[](bg:bright-blue fg:#333333)$user [on ](bg:bright-blue fg:black)]($style)"
+style_root = "bold bg:bright-blue fg:red"
+style_user = "bold bg:bright-blue fg:yellow"
+show_always = true
+
+[hostname]
+disabled = false
+ssh_only = false
+trim_at = "."
+format = "[($style)$hostname(bg:bright-blue)[](fg:bright-blue bg:cyan)]($style)"
+style = "bold dimmed bg:bright-blue fg:green"
+
+[character]
+disabled = false
+format = "$symbol "
+success_symbol = "[[](bg:#1bb351 fg:cyan)](fg:#1bb351)"
+error_symbol = "[[](bg:#ff0000 fg:cyan)](fg:#ff0000)"
+# vicmd_symbol = "[[](fg:green bg:#333333)](bg:green fg:#000000)"
+
+ # powder blue		769ff0
+# light grey		a3aed2
+# dark grey			090c0c
+# \n[░▒▓](#a3aed2)\
+# $battery(bg:#769ff0 fg:#a3aed2)\
+# $username\
+# $hostname\
+# $character"""

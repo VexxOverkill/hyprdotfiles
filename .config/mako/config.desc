@@ -1,0 +1,97 @@
+#font=font
+	#Set font to font, as a Pango font description. For more information on Pango font descriptions, see: https://docs.gtk.org/Pango/type_func.FontDescription.from_string.html#description
+	#Default: monospace 10
+background-color=#ff1aff
+	#Set background color to color. See COLORS for more information.
+	#Default: #285577FF
+text-color=#4d004d
+	#Set text color to color. See COLORS for more information.
+	#Default: #FFFFFFFF
+width=350
+	#Set width of notification popups.
+	#Default: 300
+height=125
+	#Set maximum height of notification popups. Notifications whose text takes up less space are shrunk to fit.
+	#Default: 100
+#outer-margin=directional
+	#Set outer-margin of each edge to the size specified by directional. See DIRECTIONAL VALUES for more information. This margin applies to the outside of the whole notification list.
+	#Default: 0
+#margin=directional
+	#Set margin of each edge to the size specified by directional. See DIRECTIONAL VALUES for more information. This margin applies to each individual notification. Note that it applies in addition to outer-margin, meaning first and last notifications will use the sum of both margins.
+	#Default: 10
+#padding=directional
+	#Set padding on each side to the size specified by directional. See DIRECTIONAL VALUES for more information.
+	#Default: 5
+border-size=5
+	#Set popup border size to px pixels.
+	#Default: 2
+border-color=#4d004d
+	#Set popup border color to color. See COLORS for more information.
+	#Default: #4C7899FF
+border-radius=18
+	#Set popup corner radius to px pixels.
+	#Default: 0
+#progress-color=[over|source] color
+	#Set popup progress indicator color to color. See COLOR for more information. To draw the progress indicator on top of the background color, use the over attribute. To replace the background color, use the source attribute (this can be useful when the notification is semi-transparent).
+	#Progress can be indicated in a notification by setting a hint, "value" to an integer between 0 and 100 inclusive.
+	#Default: over #5588AAFF
+#icons=1
+	#Show icons in notifications.
+	#Default: 1
+#max-icon-size=64
+	#Set maximum icon size to px pixels.
+	#Default: 64
+#icon-path=path[:path...]
+	#Paths to search for icons when a notification specifies a name instead of a full path. Colon-delimited. This approximates the search algorithm used by the XDG Icon Theme Specification, but does not support any of the theme metadata. Therefore, if you want to search parent themes, you'll need to add them to the path manually.
+	#The path should be the root of the icon theme, the categories and resolutions will be searched for the most appropriate match.
+	#/usr/share/icons/hicolor and /usr/share/pixmaps are always searched.
+	#Default: ""
+#icon-location=left
+	#Position of the icon relative to the displayed text. Valid options are left, right, top and bottom.
+	#Default: left
+#markup=1
+	#If 1, enable Pango markup. If 0, disable Pango markup. If enabled, Pango markup will be interpreted in your format specifier and in the body of notifications.
+	#Default: 1
+#actions=1
+	#Applications may request an action to be associated with activating a notification. Disabling this will cause mako to ignore these requests.
+	#Default: 1
+history=16
+	#If set, mako will save notifications that have reached their timeout into the history buffer instead of immediately deleting them. max-history determines the size of the history buffer.
+	#Default: 1
+#format=format
+	#Set notification format string to format. See FORMAT SPECIFIERS for more information. To change this for grouped notifications, set it within a grouped criteria.
+	#Default: <b>%s</b>\n%b Default when grouped: (%g) <b>%s</b>\n%b
+text-alignment=right
+	#Set notification text alignment.
+	#Default: left
+default-timeout=6000
+	#Set the default timeout to timeout in milliseconds. To disable the timeout, set it to zero.
+	#Default: 0
+#ignore-timeout=0|1
+	#If set, mako will ignore the expire timeout sent by notifications and use the one provided by default-timeout instead.
+	#Default: 0
+#group-by=field[,field,...]
+	#A comma-separated list of criteria fields that will be compared to other visible notifications to determine if this one should form a group with them. All listed criteria must be exactly equal for two notifications to group.
+	#Default: none
+max-visible=4
+	#Set maximum number of visible notifications to n. Older notifications will be hidden. If -1, all notifications are visible.
+	#Default: 5
+#output=name
+	#Show notifications on the specified output. If empty, notifications will appear on the focused output.
+	#Requires the compositor to support the Wayland protocol xdg-output-unstable-v1 version 2.
+	#Default: ""
+#layer=layer
+	#Arrange mako at the specified layer, relative to normal windows. Supported values are background, bottom, top, and overlay. Using overlay will cause notifications to be displayed above fullscreen windows, though this may also occur at top depending on your compositor.
+	#Default: top
+anchor=top-right
+	#Show notifications at the specified position on the output. Supported values are top-right, top-center, top-left, bottom-right, bottom-center, bottom-left, center-right, center-left and center.
+	#Default: top-right
+#NOTES
+#DIRECTIONAL VALUES
+	#Some options set values that affect all four edges of a notification. These options can be specified in several different ways, depending on how much control over each edge is desired:
+	#A single value will apply to all four edges.
+	#Two values will set vertical and horizontal edges separately.
+	#Three will set top, horizontal, and bottom edges separately.
+	#Four will set top, right, bottom, and left edges separately.
+	#When specifying multiple values, they should be comma-separated. For example, this would set the top margin to 10, left and right to 20, and bottom to five:
+	#margin = 10,20,5

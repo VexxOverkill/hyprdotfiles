@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Define directories
+SOURCE_DIR="/home/vexx/NAS/Pictures/Wallpapers"
+DESTINATION="/home/vexx/.cache/wal/wall"
+
+# List files in the source directory
+echo "Select a wallpaper from the following list:"
+select file in "$SOURCE_DIR"/*; do
+    # Check if a valid file was selected
+    if [[ -f "$file" ]]; then
+        echo "You selected: $file"
+        break
+    else
+        echo "Invalid selection, please try again."
+    fi
+done
+
+# Copy the selected file to the destination
+cp $file $DESTINATION
+if [[ $? -ne 0 ]]; then
+    echo "Error copying file to $DESTINATION"
+    exit 1
+fi
+
+hyprctl hyprpaper unload all
+
+# Preload the image in hyprpaper
+hyprctl hyprpaper preload $DESTINATION
+
+# Set the image in hyprpaper and unload unused images
+hyprctl hyprpaper wallpaper eDP-1, $DESTINATION
+hyprctl hyprpaper unload unused
+# clear old color schemes
+wal -c
+# Set the color scheme using wal
+wal -i $DESTINATION
+/home/vexx/.config/mako/./update-theme.sh
+
+echo "Wallpaper set and color scheme set to $file."
+
+
+#file=$(zenity --file-selection --title="Select a Wallpaper" --filename="/home/vexx/NAS/Pictures/Wallpapers/" --file-filter="*.jpg; *.png; *.jpeg")

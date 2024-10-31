@@ -1,0 +1,146 @@
+# Imported from man 5 alacritty
+
+# [GENERAL]
+# This section documents the root level of the configuration file.
+	# import = ["<string>",]
+	# Import additional configuration files.
+	# Imports  are  loaded in order, skipping all missing files, with the importing file being
+	# loaded last. If a field is already present in a previous import, it will be replaced.
+	# All imports must either be absolute paths starting with /,  or  paths  relative  to  the
+	# user's home directory starting with ~/.
+	# Example:
+		# import = [
+		# "~/.config/alacritty/base16-dark.toml",
+		# "~/.config/alacritty/keybindings.toml",
+		# ]
+
+	# shell = "<string>" | { program = "<string>", args = ["<string>",] }
+	# You  can set shell.program to the path of your favorite shell, e.g. /bin/zsh. Entries in
+	# shell.args are passed as arguments to the shell.
+	# Default:
+	# Linux/BSD/macOS: $SHELL or the user's login shell, if $SHELL is unset
+	# Windows: "powershell"
+	# Example:
+		# [shell]
+		# program = "/bin/zsh"
+		#args = ["-l"]
+
+	# working_directory = "<string>" | "None"
+	# Directory the shell is started in. When this is unset, or "None", the working  directory
+	# of the parent process will be used.
+
+	# Default: "None"
+	live_config_reload = true
+	# Live config reload (changes require restart). Default: true
+
+	# ipc_socket = true | false # (unix only)
+	# Offer IPC using alacritty msg. Default: true
+
+# [Environment]
+	# All  key-value  pairs  in  the  [env] section will be added as environment variables for any
+	# process spawned by Alacritty, including its shell. Some entries may override  variables  set
+	# by alacritty itself.
+	# Example:
+		# [env]
+		# WINIT_X11_SCALE_FACTOR = "1.0"
+
+# [Window]
+# This section documents the [window] table of the configuration file.
+	# dimensions = { columns = <integer>, lines = <integer> }
+	# Window dimensions (changes require restart).
+	# Number  of  lines/columns  (not  pixels) in the terminal. Both lines and columns must be
+	# non-zero for this to take effect. The number of columns must be at least 2, while  using
+	# a  value  of  0 for columns and lines will fall back to the window manager's recommended
+	# size
+	# Default: { columns = 0, lines = 0 }
+
+	# position = "None" | { x = <integer>, y = <integer> }
+	# Window startup position specified in number of pixels.
+	# If the position is "None", the window manager will handle placement.
+	# Default: "None"
+
+	# padding = { x = <integer>, y = <integer> }
+	# Blank space added around the window in pixels. This padding is scaled  by  DPI  and  the
+	# specified value is always added at both opposing sides.
+	# Default: { x = 0, y = 0 }
+
+	# dynamic_padding = true | false
+	# Spread additional padding evenly around the terminal content.
+	# Default: false
+
+	# decorations = "Buttonless"
+	# Window decorations. Options: "Full" | "None" | "Transparent" | "Buttonless"
+	# Full: Borders and title bar. None: Neither borders nor title bar.
+	# Transparent (macOS only): Title bar, transparent background and title bar buttons.
+	# Buttonless (macOS only): Title bar, transparent background and no title bar buttons.
+	# Default: "Full"
+
+	# opacity = 0.8 #- Apparently unused key config
+	# Background  opacity  as  a  floating point number from 0.0 to 1.0. The value 0.0 is
+	# completely transparent and 1.0 is opaque. Default: 1.0
+
+	# blur = true | false # (works on macOS/KDE Wayland)
+	# Request compositor to blur content behind transparent windows. Default: false
+
+	# startup_mode = "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"(MacOS)
+	# Startup mode (changes require restart). Default: "Windowed"
+
+	# title = "<string>"
+	# Window title. Default: "Alacritty"
+
+	# dynamic_title = true | false
+	# Allow terminal applications to change Alacritty's window title. Default: true
+
+	# class = { instance = "<string>", general = "<string>" } # (Linux/BSD only)
+	# Window class. On Wayland, general is used as app_id and instance is ignored.
+	# Default: { instance = "Alacritty", general = "Alacritty" }
+
+	# decorations_theme_variant = "None" #"Dark" | "Light" | "None"
+	# Override the variant of the System theme/GTK theme/Wayland client side decorations.  Set
+	# this to "None" to use the system's default theme variant.
+	# Default: "None"
+
+	# resize_increments = true | false
+	# Prefer resizing window by discrete steps equal to cell dimensions. Default: false
+
+	# option_as_alt = "OnlyLeft" | "OnlyRight" | "Both" | "None" # (macos only)
+	# Make Option key behave as Alt. Default: "None"
+	# Example:
+		# [window]
+		# padding = { x = 3, y = 3 }
+		# dynamic_padding = true
+		# opacity = 0.9
+
+# [Scrolling]
+# This section documents the [scrolling] table of the configuration file.
+	# history = 1275
+		# Maximum number of lines in the scrollback buffer.
+		# Specifying 0 will disable scrolling. Limited to 100000. Default: 10000
+
+	# multiplier = 3
+	# Number of line scrolled for every input scroll increment. Default: 3
+
+[font]
+# This section documents the [font] table of the configuration file.
+	normal = { family = "DejaVuSansM Nerd Font", style = "Regular Oblique" }
+	# normal = { family = "DejaVu Sans", style = "Mono Bold" }
+	# normal = { family = "Droid Sans", style = "Mono Bold" }
+		# Defaults
+			# Linux/BSD: { family = "monospace", style = "Regular" }
+			# Windows:{ family = "Consolas",  style = "Regular" }
+			# macOS:  { family = "Menlo",  style = "Regular" }
+
+	# bold = { family = "<string>", style = "<string>" }
+		# If  the family is not specified, it will fall back to the value specified for the normal font.
+		# Default: { style = "Bold" }
+	# italic = { family = "<string>", style = "<string>" }
+		# If the family is not specified, it will fall back to the value specified for the  normal font.
+		# Default: { style = "Italic" }
+	# bold_italic = { family = "<string>", style = "<string>" }
+		# If  the family is not specified, it will fall back to the value specified for the normal font.
+		# Default: { style = "Bold Italic" }
+
+	# size = <float>
+		#Font size in points. Default: 11.25
+
+	# offset = { x = <integer>, y = <integer>

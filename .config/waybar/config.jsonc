@@ -1,0 +1,138 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 24,
+	"width": 1900,
+	"spacing": 5,
+	"background": "transparent",
+
+	"modules-left": [
+		"hyprland/workspaces",
+		"hyprland/window"
+	],
+	"modules-center": [
+		"clock",
+		"custom/weather"
+	],
+	"modules-right": [
+		"idle_inhibitor",
+		"backlight",
+		"cpu",
+		"memory",
+		"pulseaudio",
+		"battery",
+		"tray",
+		"custom/power"
+	],
+	
+           "hyprland/workspaces": {
+                "format": "{name}{icon}",
+                "format-icons": {
+                     "1": "",
+                     "2": "",
+                     "3": "",
+                     "4": "",
+                     "5": "",
+                     "6": "",
+                     "7": "",
+                     "8": "",
+                     "9": "",
+                     "10": "",
+                     "11": "",
+                     "12": ""
+                },
+                "persistent-workspaces": {
+                     "*": 3, // 5 workspaces by default on every monitor
+                     "HDMI-A-1": 3 // but only three on HDMI-A-1
+                }
+           },
+
+	"custom/power": {
+		"format": " ⏻ ",
+		"tooltip": false,
+		"on-click": "wlogout --protocol layer-shell"
+	},
+	
+	"custom/weather": {
+		"exec": "~/.config/waybar/scripts/get_weather.sh ~coram+new+york",
+		"return-type": "json",
+		"format": "{}",
+		"tooltip": true,
+		"interval": 3600
+	},
+	
+	"backlight": {
+		"interval": 5,
+		"format": "{icon}{percent}%",
+		"format-icons": ["○ ", "☉ ", "⦿ ", "● "]
+	},
+	
+	"backlight/slider": {
+		"min": 5,
+		"max": 100,
+		"orientation": "horizontal",
+		"width": 25
+	},
+	
+	"hyprland/window": {
+		"format": "{title}"
+	},
+
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "🖵",
+			"deactivated": "💤"
+		}
+	},
+
+	"cpu": {
+		"interval": 10,
+		"format": "🖳 {usage}%"
+	},
+
+	"memory": {
+		"interval": 30,
+		"format": "{used:0.1f}/{total:0.1f}GB ({percentage}%)"
+	},
+
+	"battery": {
+		"bat": "BAT0",
+		"interval": 5,
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "🔋 {capacity}%",
+		"format-charging": "🔋🗲 {capacity}%",
+		"format-critical": "🪫 {capacity}%",
+		"format-critical-charging": "🪫 {capacity}%"
+	},
+	
+	"clock": {
+		"format": "{:%H:%M  %m/%d/%Y}",
+		"tooltip-format": "{calendar}",
+		"calendar": {
+			"format": {
+				"months": "{}",
+				"today": "{}"
+			}
+		}
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-icons": {
+			"default": [" ", " ", "  "]
+		},
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol",
+		"format-muted": " {volume}%"
+	},
+
+	"tray": {
+		"icon-size": 20,
+		"spacing": 5
+	}
+}

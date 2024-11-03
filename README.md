@@ -9,11 +9,22 @@ the .zshrc was largely just a kali clone.
 
 Requires:
 
-fastfetch - 
-wal - for color changing w/ wallpaper script
-	applies to terminal & moki
+fastfetch
+wal 	- for color changing w/ wallpaper script
+mako 	- notifications
+hyprpaper
+waybar
+...Hyprland
 
 currently no install file, just move everything to your home directory
 
 
 In conclusion... Don't download this, you'll only be disapointed.
+
+Notable keybinds:
+
+Win+W		= Set wallpaper and change some colors with wal
+Win+H		= Restart OR start hyprpaper
+Win+Alt+H	= Restart OR start waybar
+Win+C		= Terminal
+Win+Q		= Kill active window

@@ -9,18 +9,18 @@ the .zshrc was largely just a kali clone.
 ![Preview](previews/screenshot10222024@085311.png)<br>
 <img src="previews/screenshot10272024@093133.png" alt="Preview" align="left">
 
-<p>Requires:
-
-fastfetch
-wal 	- for color changing w/ wallpaper script
-mako 	- notifications
-hyprpaper
-waybar
+<p>Requires:<br>
+<br>
+fastfetch<br>
+wal 	- for color changing w/ wallpaper script<br>
+mako 	- notifications<br>
+hyprpaper<br>
+waybar<br>
 ...Hyprland</p>
 
-<p>Currently no install file, just move -
-.config
-.zshrc
+<p>Currently no install file, just move -<br>
+.config<br>
+.zshrc<br>
 - to your home directory (You should backup your stuff)</p>
 
 In conclusion... Don't download this, you'll only be disapointed.

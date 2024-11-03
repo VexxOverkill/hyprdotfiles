@@ -1,27 +1,27 @@
-<b>My Hyprland dotfiles.</b>
-For Arch... btw.
-A constant work in progress
+<b>My Hyprland dotfiles.</b><br>
+For Arch... btw.<br>
+A constant work in progress<br>
 
 Very basic, most code or configs have been stolen from other people or chatgpt. 
 I are not a programmer at all, I only made this public as a warning of what not to do, lol.
 the .zshrc was largely just a kali clone.
 
-![Preview](previews/screenshot10222024@085311.png)
+![Preview](previews/screenshot10222024@085311.png)<br>
 <img src="previews/screenshot10272024@093133.png" alt="Preview" align="left">
 
-Requires:
+<p>Requires:
 
 fastfetch
 wal 	- for color changing w/ wallpaper script
 mako 	- notifications
 hyprpaper
 waybar
-...Hyprland
+...Hyprland</p>
 
-currently no install file, just move -
+<p>Currently no install file, just move -
 .config
 .zshrc
-- to your home directory (You should backup your stuff)
+- to your home directory (You should backup your stuff)</p>
 
 In conclusion... Don't download this, you'll only be disapointed.
 
